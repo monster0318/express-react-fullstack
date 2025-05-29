@@ -1,6 +1,7 @@
 import { connectDB } from './connect-db'
 
 export async function assembleUserState(user){
+
     let db = await connectDB();
 
     let tasks = await db.collection(`tasks`).find({owner:user.id}).toArray();
